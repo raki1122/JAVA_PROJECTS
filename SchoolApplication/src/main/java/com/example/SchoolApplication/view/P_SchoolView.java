@@ -14,13 +14,9 @@ public class P_SchoolView {
 	private LocalTime Created_On;
 	private LocalTime modified_On;
 	private LocalDate Admission_date;
-
-	public P_SchoolView() {
-
-	}
-
+    private int fees;
 	public P_SchoolView(int rollNo, String stud_Name, String father_Name, String mother_Name, LocalDate birth_Date,
-			int standard, int age, LocalTime created_On, LocalTime modified_On, LocalDate admission_date) {
+			int standard, int age, LocalTime created_On, LocalTime modified_On, LocalDate admission_date, int fees) {
 		super();
 		RollNo = rollNo;
 		Stud_Name = stud_Name;
@@ -32,7 +28,13 @@ public class P_SchoolView {
 		Created_On = created_On;
 		this.modified_On = modified_On;
 		Admission_date = admission_date;
+		this.fees = fees;
 	}
+
+	public P_SchoolView() {
+
+	}
+
 
 	public int getRollNo() {
 		return RollNo;
@@ -112,6 +114,14 @@ public class P_SchoolView {
 
 	public void setAdmission_date(LocalDate admission_date) {
 		Admission_date = admission_date;
+	}
+
+	public int getFees() {
+		return fees;
+	}
+
+	public void setFees(int fees) {
+		this.fees = fees;
 	}
 
 	@Override
