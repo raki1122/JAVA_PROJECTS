@@ -1,0 +1,5 @@
+select * from course;
+
+insert into course values(1,'rakesh','Spring_In_28Minutes');
+
+delete from course where id=1;

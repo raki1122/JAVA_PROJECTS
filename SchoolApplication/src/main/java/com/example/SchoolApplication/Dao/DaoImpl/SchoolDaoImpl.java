@@ -65,5 +65,13 @@ public class SchoolDaoImpl implements SchoolDao{
 				p_SchoolView.getAge(),LocalDateTime.now(),p_SchoolView.getAdmission_date(),p_SchoolView.getFees(),p_SchoolView.getRollNo()});
 		 return temp;
 	}
+
+	@Override
+	public Integer deleteStudent(Integer RollNo) {
+	   String query="delete from P_School where RollNo=?";
+	   Integer temp=jdbctemplate.update(query, new Object[] {RollNo});
+	   return temp;
+		
+	}
    
 }

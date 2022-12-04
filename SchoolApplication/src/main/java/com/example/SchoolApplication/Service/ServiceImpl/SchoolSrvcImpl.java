@@ -32,4 +32,9 @@ public class SchoolSrvcImpl implements SchoolDao{
 		return schoolDaoImpl.updateStudent(p_SchoolView);
 	}
 
+	@Override
+	public Integer deleteStudent(Integer RollNo) {
+	return schoolDaoImpl.deleteStudent(RollNo);
+	}
+
 }
