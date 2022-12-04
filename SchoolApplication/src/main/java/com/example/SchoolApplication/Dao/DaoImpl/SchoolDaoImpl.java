@@ -1,8 +1,11 @@
 package com.example.SchoolApplication.Dao.DaoImpl;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -40,6 +43,27 @@ public class SchoolDaoImpl implements SchoolDao{
 		  listStud.add(p_SchoolView);
 	  }
 	  return listStud;
+	}
+
+	@Override
+	public void saveStudent(P_SchoolView p_SchoolView) {
+		String query="insert into P_School values(?,?,?,?,?,?,?,?,?,?,?)";
+		//java.sql.Timestamp timestamp = new java.sql.Timestamp(cal.getTimeInMillis());
+		Calendar cal = Calendar.getInstance(); 
+		java.sql.Timestamp timestamp = new Timestamp(cal.getTimeInMillis());
+		int i=jdbctemplate.update(query, new Object[] {p_SchoolView.getRollNo(),p_SchoolView.getStud_Name(),
+				p_SchoolView.getFather_Name(),p_SchoolView.getMother_Name(),p_SchoolView.getBirth_Date(),p_SchoolView.getStandard(),
+				p_SchoolView.getAge(),LocalDateTime.now(),LocalDateTime.now(),p_SchoolView.getAdmission_date(),p_SchoolView.getFees()});
+		
+	}
+
+	@Override
+	public Integer updateStudent(P_SchoolView p_SchoolView) {
+		 String query="update P_School set Stud_Name=?,Father_Name=?,Mother_Name=?,Birth_Date=?,Standard=?,age=?,modified_On=?,Admission_date=?,Fees=? where RollNo=? ";
+	    int temp=jdbctemplate.update(query, new Object[] {p_SchoolView.getStud_Name(),
+				p_SchoolView.getFather_Name(),p_SchoolView.getMother_Name(),p_SchoolView.getBirth_Date(),p_SchoolView.getStandard(),
+				p_SchoolView.getAge(),LocalDateTime.now(),p_SchoolView.getAdmission_date(),p_SchoolView.getFees(),p_SchoolView.getRollNo()});
+		 return temp;
 	}
    
 }

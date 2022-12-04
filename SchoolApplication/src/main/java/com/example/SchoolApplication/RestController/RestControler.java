@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.SchoolApplication.Service.ServiceImpl.SchoolSrvcImpl;
@@ -20,4 +23,19 @@ public class RestControler {
 	{
 		return schoolSrvcImpl.getStudents();
 	}
+	@PostMapping("/SaveStudent")
+	public void saveStudent(@RequestBody P_SchoolView p_SchoolView)
+	{
+		schoolSrvcImpl.saveStudent(p_SchoolView);
+	}
+	@PutMapping("/UpdateStudent")
+	public String updateStudent(@RequestBody P_SchoolView p_SchoolView)
+	{
+		Integer temp=schoolSrvcImpl.updateStudent(p_SchoolView);
+			
+			return p_SchoolView.getRollNo()+" is update successfully";
+		
+	}
+	
+	
 }

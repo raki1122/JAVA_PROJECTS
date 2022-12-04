@@ -21,4 +21,15 @@ public class SchoolSrvcImpl implements SchoolDao{
 		return schoolDaoImpl.getStudents();
 	}
 
+	@Override
+	public void saveStudent(P_SchoolView p_SchoolView) {
+		schoolDaoImpl.saveStudent(p_SchoolView);
+		
+	}
+
+	@Override
+	public Integer updateStudent(P_SchoolView p_SchoolView) {
+		return schoolDaoImpl.updateStudent(p_SchoolView);
+	}
+
 }
