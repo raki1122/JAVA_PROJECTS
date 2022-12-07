@@ -3,6 +3,7 @@ package com.example.SchoolApplication.Service.ServiceImpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.SchoolApplication.Dao.SchoolDao;
@@ -22,8 +23,8 @@ public class SchoolSrvcImpl implements SchoolDao{
 	}
 
 	@Override
-	public void saveStudent(P_SchoolView p_SchoolView) {
-		schoolDaoImpl.saveStudent(p_SchoolView);
+	public ResponseEntity<P_SchoolView> saveStudent(P_SchoolView p_SchoolView) {
+		return schoolDaoImpl.saveStudent(p_SchoolView);
 		
 	}
 
@@ -35,6 +36,12 @@ public class SchoolSrvcImpl implements SchoolDao{
 	@Override
 	public Integer deleteStudent(Integer RollNo) {
 	return schoolDaoImpl.deleteStudent(RollNo);
+	}
+
+	@Override
+	public P_SchoolView getStudentById(Integer Id) {
+		// TODO Auto-generated method stub
+		return schoolDaoImpl.getStudentById(Id);
 	}
 
 }

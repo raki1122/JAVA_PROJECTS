@@ -1,8 +1,17 @@
 package comin28minutes.springboot.Learn_JPA_and_hibernate.course;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Course {
+	
+	@Id
     private long id;
+	@Column(name="Name")
     private String name;
+	@Column(name = "Author")
 	private String author;
 	
 	 @Override

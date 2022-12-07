@@ -1,9 +1,12 @@
 package com.example.SchoolApplication.view;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-public class P_SchoolView {
+public class P_SchoolView implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private int RollNo;
 	private String Stud_Name;
 	private String Father_Name;
@@ -11,12 +14,12 @@ public class P_SchoolView {
 	private LocalDate Birth_Date;
 	private int Standard;
 	private int age;
-	private LocalTime Created_On;
-	private LocalTime modified_On;
+	private LocalDateTime Created_On;
+	private LocalDateTime modified_On;
 	private LocalDate Admission_date;
     private int fees;
 	public P_SchoolView(int rollNo, String stud_Name, String father_Name, String mother_Name, LocalDate birth_Date,
-			int standard, int age, LocalTime created_On, LocalTime modified_On, LocalDate admission_date, int fees) {
+			int standard, int age, LocalDateTime created_On, LocalDateTime modified_On, LocalDate admission_date, int fees) {
 		super();
 		RollNo = rollNo;
 		Stud_Name = stud_Name;
@@ -92,19 +95,19 @@ public class P_SchoolView {
 		this.age = age;
 	}
 
-	public LocalTime getCreated_On() {
+	public LocalDateTime getCreated_On() {
 		return Created_On;
 	}
 
-	public void setCreated_On(LocalTime created_On) {
+	public void setCreated_On(LocalDateTime created_On) {
 		Created_On = created_On;
 	}
 
-	public LocalTime getModified_On() {
+	public LocalDateTime getModified_On() {
 		return modified_On;
 	}
 
-	public void setModified_On(LocalTime modified_On) {
+	public void setModified_On(LocalDateTime modified_On) {
 		this.modified_On = modified_On;
 	}
 
