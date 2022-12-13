@@ -5,14 +5,24 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
+
 public class P_SchoolView implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int RollNo;
+	@Size(min = 2, message = "Name should contain atleast more than two characters")
 	private String Stud_Name;
+	@Size(min = 2, message = "father Name should contain atleast more than two characters")
 	private String Father_Name;
+	@Size(min = 2, message = "mother Name should contain atleast more than two characters")
 	private String Mother_Name;
+	@Past(message = "birth date can not be future")
 	private LocalDate Birth_Date;
+	@Positive(message = "class can not be negative")
 	private int Standard;
+	@Positive(message = "age can not be negative")
 	private int age;
 	private LocalDateTime Created_On;
 	private LocalDateTime modified_On;

@@ -16,6 +16,8 @@ import com.example.SchoolApplication.CustomExce.IdNotFoundException;
 import com.example.SchoolApplication.Service.ServiceImpl.SchoolSrvcImpl;
 import com.example.SchoolApplication.view.P_SchoolView;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class RestControler {
     
@@ -28,7 +30,7 @@ public class RestControler {
 		return schoolSrvcImpl.getStudents();
 	}
 	@PostMapping("/SaveStudent")
-	public ResponseEntity<P_SchoolView> saveStudent(@RequestBody P_SchoolView p_SchoolView)
+	public ResponseEntity<P_SchoolView> saveStudent(@Valid @RequestBody P_SchoolView p_SchoolView)
 	{
 		return schoolSrvcImpl.saveStudent(p_SchoolView);
 	}
